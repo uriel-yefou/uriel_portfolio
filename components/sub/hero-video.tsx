@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-import { getHeroVideoStyle } from "@/lib/layout";
+import { getHeroVideoStyle, HERO_VIDEO_STYLE_INITIAL } from "@/lib/layout";
 
 export const HeroVideo = () => {
-  const [videoStyle, setVideoStyle] = useState(getHeroVideoStyle);
+  const [videoStyle, setVideoStyle] = useState(HERO_VIDEO_STYLE_INITIAL);
 
   useEffect(() => {
-    const update = () => setVideoStyle(getHeroVideoStyle());
+    const update = () =>
+      setVideoStyle(getHeroVideoStyle(window.innerWidth, window.innerHeight));
 
     update();
     window.addEventListener("resize", update, { passive: true });

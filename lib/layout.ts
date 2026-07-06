@@ -28,10 +28,7 @@ function lerp(from: number, to: number, t: number) {
   return from + (to - from) * t;
 }
 
-export function getHeroVideoStyle(
-  width = typeof window !== "undefined" ? window.innerWidth : HERO_VIDEO_WIDE_WIDTH,
-  height = typeof window !== "undefined" ? window.innerHeight : HERO_VIDEO_TALL_HEIGHT,
-) {
+export function getHeroVideoStyle(width: number, height: number) {
   const widthT = clamp(
     (HERO_VIDEO_WIDE_WIDTH - width) / (HERO_VIDEO_WIDE_WIDTH - HERO_VIDEO_NARROW_WIDTH),
     0,
@@ -53,3 +50,9 @@ export function getHeroVideoStyle(
     )}%`,
   };
 }
+
+/** Static defaults for SSR — must match the first client render before mount. */
+export const HERO_VIDEO_STYLE_INITIAL = getHeroVideoStyle(
+  HERO_VIDEO_WIDE_WIDTH,
+  HERO_VIDEO_TALL_HEIGHT,
+);

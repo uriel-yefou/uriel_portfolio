@@ -4,7 +4,7 @@ import type { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
-import { StarsCanvas } from "@/components/main/stars-canvas-loader";
+import { StarfieldLayer } from "@/components/main/stars-canvas-loader";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -23,15 +23,17 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={cn(
-          "bg-[#030014] overflow-y-scroll overflow-x-hidden",
-          inter.className
-        )}
+        className={cn("overflow-x-hidden overflow-y-scroll", inter.className)}
       >
-        <StarsCanvas />
-        <Navbar />
-        {children}
-        <Footer />
+        <div className="fixed inset-0 z-0 isolate bg-[#030014]">
+          <StarfieldLayer />
+        </div>
+
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
