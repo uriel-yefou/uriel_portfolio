@@ -32,7 +32,18 @@ export const ContactForm = () => {
         body: JSON.stringify(payload),
       });
 
-      const data = (await response.json()) as { error?: string; success?: boolean };
+      const text = await response.text();
+      let data: { error?: string; success?: boolean } = {};
+
+      if (text.trim()) {
+        try {
+          data = JSON.parse(text) as { error?: string; success?: boolean };
+        } catch {
+          throw new Error("Server returned an invalid response. Please try again.");
+        }
+      } else if (!response.ok) {
+        throw new Error("Server returned an empty response. Please try again.");
+      }
 
       if (!response.ok || !data.success) {
         throw new Error(data.error ?? "Failed to send message");
