@@ -31,45 +31,47 @@ export const ProjectShowcaseCard = ({
       href={link}
       target="_blank"
       rel="noreferrer noopener"
-      className="group block px-8 py-6"
+      className="group flex h-full min-h-0 flex-col justify-center px-6 py-4 sm:px-8 sm:py-5"
     >
-      <div className="overflow-hidden rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] transition group-hover:border-blue-400/50 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]">
+      <div className="h-full min-h-[140px] overflow-hidden rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] transition group-hover:border-blue-400/50 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]">
         <Image
           src={image}
           alt={title}
           width={640}
           height={480}
-          className="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.02] md:h-60"
+          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
         />
       </div>
     </Link>
   );
 
   const contentBlock = (
-    <div className="flex flex-1 flex-col px-8 py-8">
-      <div className="mb-8 flex items-start justify-between gap-4">
-        <span className="text-5xl font-bold leading-none text-white/90">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden px-6 py-5 sm:px-8 sm:py-6">
+      <div className="mb-4 flex shrink-0 items-start justify-between gap-3 sm:mb-6 sm:gap-4">
+        <span className="text-4xl font-bold leading-none text-white/90 sm:text-5xl">
           {number}
         </span>
-        <div className="text-right">
+        <div className="min-w-0 text-right">
           <Link
             href={link}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-xl font-semibold text-white transition hover:text-blue-400 md:text-2xl"
+            className="line-clamp-2 text-lg font-semibold text-white transition hover:text-blue-400 sm:text-xl md:text-2xl"
           >
             {title}
           </Link>
-          <p className="mt-1 text-sm text-gray-500">{category}</p>
+          <p className="mt-1 text-xs text-gray-500 sm:text-sm">{category}</p>
         </div>
       </div>
 
-      <div className="mt-auto">
-        <h3 className="mb-3 text-lg font-semibold text-white">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+        <h3 className="mb-2 shrink-0 text-base font-semibold text-white sm:mb-3 sm:text-lg">
           Tools and features
         </h3>
-        <p className="text-sm leading-relaxed text-gray-400">{description}</p>
-        <p className="mt-3 text-sm text-gray-500">
+        <p className="line-clamp-4 text-xs leading-relaxed text-gray-400 sm:line-clamp-5 sm:text-sm">
+          {description}
+        </p>
+        <p className="mt-2 line-clamp-2 shrink-0 text-xs text-gray-500 sm:mt-3 sm:text-sm">
           {technologies.join(", ")}
         </p>
       </div>
@@ -77,32 +79,35 @@ export const ProjectShowcaseCard = ({
   );
 
   return (
-    <article
-      className={cn(
-        "flex h-full min-w-[320px] max-w-[420px] shrink-0 flex-col border-r border-white/10 md:min-w-[380px]",
-        imageFirst ? "flex-col" : "flex-col-reverse",
-      )}
-    >
-      {imageBlock}
-      {contentBlock}
+    <article className="grid h-full min-h-0 w-[min(85vw,475px)] shrink-0 grid-rows-2 border-r border-white/10">
+      <div
+        className={cn("min-h-0 overflow-hidden", imageFirst ? "order-1" : "order-2")}
+      >
+        {imageBlock}
+      </div>
+      <div
+        className={cn("min-h-0 overflow-hidden", imageFirst ? "order-2" : "order-1")}
+      >
+        {contentBlock}
+      </div>
     </article>
   );
 };
 
 export const ProjectsCtaCard = () => {
   return (
-    <article className="flex h-full min-w-[320px] max-w-[420px] shrink-0 flex-col justify-center border-r border-white/10 px-10 py-12 md:min-w-[380px]">
-      <h3 className="text-3xl font-bold text-white md:text-4xl">
+    <article className="flex h-full min-h-0 w-[min(85vw,475px)] shrink-0 flex-col justify-center border-r border-white/10 px-8 py-10 sm:px-10 sm:py-12">
+      <h3 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
         Want to see more?
       </h3>
-      <p className="mt-4 max-w-xs text-gray-400">
+      <p className="mt-4 max-w-xs text-sm text-gray-400 sm:text-base">
         Explore all of my projects and AI engineering work.
       </p>
       <Link
         href={LINKS.github}
         target="_blank"
         rel="noreferrer noopener"
-        className="button-primary mt-8 inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-center text-white transition"
+        className="button-primary mt-6 inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-center text-white transition sm:mt-8"
       >
         See All Works →
       </Link>

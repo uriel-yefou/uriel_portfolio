@@ -39,11 +39,25 @@ export const Projects = () => {
     };
 
     measure();
+
+    const resizeObserver =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(measure)
+        : null;
+
+    resizeObserver?.observe(document.documentElement);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, []);
 
   const sectionHeight = `${(PROJECTS.length + 2) * SCROLL_VH_PER_ITEM}vh`;
+
+  const trackClassName =
+    "flex h-full min-h-0 items-stretch will-change-transform pl-6 md:pl-[80px]";
 
   return (
     <section
@@ -52,11 +66,13 @@ export const Projects = () => {
       style={{ height: shouldReduceMotion ? undefined : sectionHeight }}
       className="relative w-full"
     >
-      <div className="sticky top-0 flex h-screen flex-col overflow-hidden py-8">
-        <SectionTitle className="py-8 md:py-10">My Projects</SectionTitle>
+      <div className="sticky top-0 flex h-[100dvh] min-h-[520px] max-h-screen flex-col overflow-hidden">
+        <SectionTitle className="shrink-0 py-6 sm:py-8 md:py-10">
+          My Projects
+        </SectionTitle>
 
         {shouldReduceMotion ? (
-          <div className="scrollbar-hidden flex flex-1 items-stretch gap-0 overflow-x-auto px-6 pb-8 md:px-[80px]">
+          <div className="scrollbar-hidden flex min-h-0 flex-1 items-stretch overflow-x-auto px-6 pb-6 md:px-[80px] md:pb-8">
             {PROJECTS.map((project, index) => (
               <ProjectShowcaseCard
                 key={`${project.title}-${index}`}
@@ -72,12 +88,8 @@ export const Projects = () => {
             <ProjectsCtaCard />
           </div>
         ) : (
-          <div className="relative flex-1 overflow-hidden">
-            <motion.div
-              ref={trackRef}
-              style={{ x }}
-              className="flex h-full items-stretch will-change-transform pl-6 md:pl-[80px]"
-            >
+          <div className="relative min-h-0 flex-1 overflow-hidden">
+            <motion.div ref={trackRef} style={{ x }} className={trackClassName}>
               {PROJECTS.map((project, index) => (
                 <ProjectShowcaseCard
                   key={`${project.title}-${index}`}
@@ -93,7 +105,7 @@ export const Projects = () => {
               <ProjectsCtaCard />
             </motion.div>
 
-            <p className="pointer-events-none absolute bottom-4 right-6 text-xs text-gray-500 md:right-[80px]">
+            <p className="pointer-events-none absolute bottom-3 right-6 text-xs text-gray-500 md:bottom-4 md:right-[80px]">
               Scroll to explore →
             </p>
           </div>

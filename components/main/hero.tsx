@@ -4,7 +4,7 @@ import { ScrollDownIndicator } from "@/components/sub/scroll-down-indicator";
 
 export const Hero = () => {
   return (
-    <div id="home" className="relative flex min-h-screen w-full flex-col overflow-hidden">
+    <div id="home" className="relative flex min-h-[100dvh] w-full flex-col overflow-hidden">
       <HeroVideo />
 
       <HeroContent />
