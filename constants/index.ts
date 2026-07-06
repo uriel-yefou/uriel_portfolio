@@ -1,22 +1,13 @@
-import { FaYoutube, FaFacebook } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import {
-  RxDiscordLogo,
-  RxGithubLogo,
   RxInstagramLogo,
   RxTwitterLogo,
-  RxLinkedinLogo,
 } from "react-icons/rx";
 
 export const SKILL_DATA = [
   {
-    skill_name: "HTML",
-    image: "html.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "CSS",
-    image: "css.png",
+    skill_name: "TypeScript",
+    image: "ts.png",
     width: 80,
     height: 80,
   },
@@ -27,50 +18,14 @@ export const SKILL_DATA = [
     height: 65,
   },
   {
-    skill_name: "Tailwind CSS",
-    image: "tailwind.png",
-    width: 80,
-    height: 80,
-  },
-  {
     skill_name: "React",
     image: "react.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "Redux",
-    image: "redux.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "React Query",
-    image: "reactquery.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "TypeScript",
-    image: "ts.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Next.js 14",
+    skill_name: "Next.js",
     image: "next.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Framer Motion",
-    image: "framer.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Stripe",
-    image: "stripe.png",
     width: 80,
     height: 80,
   },
@@ -81,10 +36,52 @@ export const SKILL_DATA = [
     height: 80,
   },
   {
+    skill_name: "Docker",
+    image: "docker.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "PostgreSQL",
+    image: "postgresql.png",
+    width: 70,
+    height: 70,
+  },
+  {
     skill_name: "MongoDB",
     image: "mongodb.png",
     width: 40,
     height: 40,
+  },
+  {
+    skill_name: "Express.js",
+    image: "express.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Tailwind CSS",
+    image: "tailwind.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "GraphQL",
+    image: "graphql.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Prisma",
+    image: "prisma.png",
+    width: 70,
+    height: 70,
+  },
+  {
+    skill_name: "HTML5",
+    image: "html.png",
+    width: 80,
+    height: 80,
   },
 ] as const;
 
@@ -108,13 +105,13 @@ export const SOCIALS = [
 
 export const FRONTEND_SKILL = [
   {
-    skill_name: "HTML",
+    skill_name: "HTML5",
     image: "html.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "CSS",
+    skill_name: "CSS3",
     image: "css.png",
     width: 80,
     height: 80,
@@ -132,14 +129,26 @@ export const FRONTEND_SKILL = [
     height: 80,
   },
   {
-    skill_name: "Material UI",
-    image: "mui.png",
+    skill_name: "React",
+    image: "react.png",
     width: 80,
     height: 80,
   },
   {
-    skill_name: "React",
-    image: "react.png",
+    skill_name: "TypeScript",
+    image: "ts.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Next.js",
+    image: "next.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Material UI",
+    image: "mui.png",
     width: 80,
     height: 80,
   },
@@ -152,18 +161,6 @@ export const FRONTEND_SKILL = [
   {
     skill_name: "React Query",
     image: "reactquery.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "TypeScript",
-    image: "ts.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Next.js 14",
-    image: "next.png",
     width: 80,
     height: 80,
   },
@@ -183,18 +180,6 @@ export const BACKEND_SKILL = [
     height: 80,
   },
   {
-    skill_name: "MongoDB",
-    image: "mongodb.png",
-    width: 40,
-    height: 40,
-  },
-  {
-    skill_name: "Firebase",
-    image: "firebase.png",
-    width: 55,
-    height: 55,
-  },
-  {
     skill_name: "PostgreSQL",
     image: "postgresql.png",
     width: 70,
@@ -207,147 +192,157 @@ export const BACKEND_SKILL = [
     height: 70,
   },
   {
+    skill_name: "MongoDB",
+    image: "mongodb.png",
+    width: 40,
+    height: 40,
+  },
+  {
     skill_name: "Prisma",
     image: "prisma.png",
     width: 70,
     height: 70,
   },
   {
-    skill_name: "Graphql",
+    skill_name: "GraphQL",
     image: "graphql.png",
     width: 80,
     height: 80,
   },
+  {
+    skill_name: "Firebase",
+    image: "firebase.png",
+    width: 55,
+    height: 55,
+  },
 ] as const;
 
 export const FULLSTACK_SKILL = [
-  {
-    skill_name: "React Native",
-    image: "reactnative.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "Tauri",
-    image: "tauri.png",
-    width: 70,
-    height: 70,
-  },
   {
     skill_name: "Docker",
     image: "docker.png",
     width: 70,
     height: 70,
   },
-
   {
-    skill_name: "Figma",
-    image: "figma.png",
-    width: 50,
-    height: 50,
+    skill_name: "React",
+    image: "react.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "Node.js",
+    image: "node.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    skill_name: "PostgreSQL",
+    image: "postgresql.png",
+    width: 70,
+    height: 70,
   },
 ] as const;
 
 export const OTHER_SKILL = [
   {
-    skill_name: "Go",
-    image: "go.png",
-    width: 60,
-    height: 60,
+    skill_name: "CSS3",
+    image: "css.png",
+    width: 80,
+    height: 80,
   },
 ] as const;
 
 export const PROJECTS = [
   {
     title: "Modern Next.js 14 Portfolio",
+    category: "Full Stack",
     description:
-      'Embark on a journey through my professional evolution with the "Modern Next.js Portfolio" - a dynamic showcase of my skills, experiences, and passion for web development. Crafted with precision and powered by Next.js, this portfolio is more than just a static display; it\'s an immersive experience that reflects the cutting edge of modern web technologies.',
+      "A dynamic portfolio built with Next.js showcasing modern web development practices, responsive design, and immersive UI interactions.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     image: "/projects/project-1.png",
     link: "https://example.com",
   },
   {
     title: "Interactive Cards Portfolio",
+    category: "Frontend",
     description:
-      'Step into the extraordinary world of my professional journey through the "Interactive Cards Portfolio" - an innovative and visually captivating platform that redefines the traditional portfolio experience. Ditching the conventional static layout, this portfolio leverages interactive cards to showcase my skills, projects, and personality in an engaging and dynamic manner.',
+      "An interactive card-based portfolio experience with motion design, engaging layouts, and a focus on visual storytelling.",
+    technologies: ["React", "JavaScript", "CSS3", "Framer Motion"],
     image: "/projects/project-2.png",
     link: "https://example.com",
   },
   {
     title: "Space Themed Website",
+    category: "Web Design",
     description:
-      'Embark on an interstellar journey with my "Space Themed Website", a mesmerizing space-themed website that invites you to explore the cosmic wonders beyond our world. Immerse yourself in an awe-inspiring digital experience that blends cutting-edge design with the mysteries of the universe.',
+      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
+    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/project-3.png",
+    link: "https://example.com",
+  },
+  {
+    title: "Space Themed Website",
+    category: "Web Design",
+    description:
+      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
+    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/project-3.png",
+    link: "https://example.com",
+  },
+  {
+    title: "Space Themed Website",
+    category: "Web Design",
+    description:
+      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
+    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/project-3.png",
+    link: "https://example.com",
+  },
+  {
+    title: "Space Themed Website",
+    category: "Web Design",
+    description:
+      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
+    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+    image: "/projects/project-3.png",
+    link: "https://example.com",
+  },
+  {
+    title: "Space Themed Website",
+    category: "Web Design",
+    description:
+      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
+    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
     image: "/projects/project-3.png",
     link: "https://example.com",
   },
 ] as const;
 
-export const FOOTER_DATA = [
-  {
-    title: "Community",
-    data: [
-      {
-        name: "YouTube",
-        icon: FaYoutube,
-        link: "https://youtube.com",
-      },
-      {
-        name: "GitHub",
-        icon: RxGithubLogo,
-        link: "https://github.com",
-      },
-      {
-        name: "Discord",
-        icon: RxDiscordLogo,
-        link: "https://discord.com",
-      },
-    ],
-  },
-  {
-    title: "Social Media",
-    data: [
-      {
-        name: "Instagram",
-        icon: RxInstagramLogo,
-        link: "https://instagram.com",
-      },
-      {
-        name: "Twitter",
-        icon: RxTwitterLogo,
-        link: "https://x.com/_sanidhyy",
-      },
-      {
-        name: "Linkedin",
-        icon: RxLinkedinLogo,
-        link: "https://linkedin.com",
-      },
-    ],
-  },
-  {
-    title: "About",
-    data: [
-      {
-        name: "Become Sponsor",
-        icon: null,
-        link: "https://youtube.com",
-      },
-      {
-        name: "Learning about me",
-        icon: null,
-        link: "https://example.com",
-      },
-      {
-        name: "Contact Me",
-        icon: null,
-        link: "mailto:contact@example.com",
-      },
-    ],
-  },
+export const FOOTER_QUICK_LINKS = [
+  { title: "Home", link: "#home" },
+  { title: "About", link: "#about" },
+  { title: "Experience", link: "#experience" },
+  { title: "Projects", link: "#projects" },
+  { title: "Skills", link: "#skills" },
+  { title: "Contact", link: "#contact" },
 ] as const;
+
+export const FOOTER_BIO =
+  "Senior AI Engineer with a strong passion for building production-grade AI systems, problem-solving, and scalable solutions.";
 
 export const NAV_LINKS = [
   {
-    title: "About me",
-    link: "#about-me",
+    title: "Home",
+    link: "#home",
+  },
+  {
+    title: "About",
+    link: "#about",
+  },
+  {
+    title: "Experience",
+    link: "#experience",
   },
   {
     title: "Skills",
@@ -357,8 +352,112 @@ export const NAV_LINKS = [
     title: "Projects",
     link: "#projects",
   },
+  {
+    title: "Contact",
+    link: "#contact",
+  },
 ] as const;
 
 export const LINKS = {
   sourceCode: "https://github.com/sanidhyy/space-portfolio",
+  github: "https://github.com",
 };
+
+export const FOOTER_SOCIAL_LINKS = [
+  { name: "GitHub", link: LINKS.github },
+  { name: "LinkedIn", link: "https://linkedin.com" },
+  { name: "Twitter", link: "https://x.com" },
+  { name: "Discord", link: "https://discord.com" },
+] as const;
+
+export const CONTACT_INFO = {
+  email: "jordantamodjou@gmail.com",
+  phone: "514-248-0144",
+  location: "Montreal, QC, Canada",
+  resumeUrl: "/resume/Uriel Nguefack Yefou.pdf",
+} as const;
+
+export const ABOUT_HEADING = "Senior AI Engineer & ML Specialist";
+
+export const ABOUT_STATS = [
+  { value: "15+", label: "Projects" },
+  { value: "7+", label: "Years coding" },
+  { value: "15+", label: "Technologies" },
+] as const;
+
+export const ABOUT_EDUCATION = [
+  {
+    degree: "Master's Degree, Data Science [2021-2022]",
+    institution: "AIMS Cameroon",
+  },
+  {
+    degree: "Master of Engineering, Industrial Robotics [2018-2021]",
+    institution: "National Higher Polytechnic School of Douala",
+  },
+] as const;
+
+export const DEVELOPER_SNIPPET = {
+  name: "Uriel Nguefack Yefou",
+  role: "Senior AI Engineer",
+  stack: ["Python", "TypeScript", "PyTorch", "LLMs", "RAG", "MLOps"],
+  focus: "production AI + automation",
+  learning: true,
+} as const;
+
+export const EXPERIENCE_DATA = [
+  {
+    initials: "YT",
+    period: "Mar 2024 - Present",
+    active: true,
+    title: "Senior AI Engineer",
+    company: "YULCOM Technologies",
+    description:
+      "Led the development of enterprise AI solutions leveraging LLMs, RAG, vector databases, and semantic search while managing a team of 5 engineers. Built agentic AI systems using GPT-4, Claude, Llama, and Mistral, and deployed MLOps infrastructure with Docker, Kubernetes, and MLflow — improving production reliability by 25%.",
+    technologies: [
+      "Python",
+      "LangChain",
+      "LLMs",
+      "RAG",
+      "Docker",
+      "Kubernetes",
+      "MLflow",
+    ],
+    theme: "purple",
+  },
+  {
+    initials: "MH",
+    period: "Jul 2022 - Mar 2024",
+    active: false,
+    title: "Senior AI Research Developer",
+    company: "Montreal Heart Institute",
+    description:
+      "Led a research initiative applying computer vision and explainable AI to genetic ancestry analysis using ECG data. Developed deep learning models with CNNs and vision transformers, and engineered reproducible pipelines with Python, PyTorch, and MLflow for clinical research teams.",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "Computer Vision",
+      "XAI",
+      "MLflow",
+      "CNNs",
+    ],
+    theme: "cyan",
+  },
+  {
+    initials: "KE",
+    period: "May 2021 - Jul 2022",
+    active: false,
+    title: "Full Stack Developer",
+    company: "Kamer Engineering Solutions SARL",
+    description:
+      "Architected a production-grade computer vision platform for urban infrastructure management. Built a Django REST Framework backend, React.js dashboard with geospatial analytics, and integrated PostgreSQL with ML model deployment pipelines.",
+    technologies: [
+      "Django",
+      "React",
+      "Python",
+      "PostgreSQL",
+      "OpenCV",
+      "REST APIs",
+    ],
+    theme: "orange",
+  },
+] as const;

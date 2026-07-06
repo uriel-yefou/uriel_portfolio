@@ -10,11 +10,24 @@ import * as random from "maath/random";
 import { useState, useRef, Suspense } from "react";
 import type { Points as PointsType } from "three";
 
+const STAR_COUNT = 5000;
+
+function generateStarPositions(count: number) {
+  const positions = new Float32Array(count - (count % 3));
+  random.inSphere(positions, { radius: 1.2 });
+
+  for (let i = 0; i < positions.length; i++) {
+    if (!Number.isFinite(positions[i])) {
+      positions[i] = 0;
+    }
+  }
+
+  return positions;
+}
+
 export const StarBackground = (props: PointsInstancesProps) => {
   const ref = useRef<PointsType | null>(null);
-  const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.2 }),
-  );
+  const [sphere] = useState(() => generateStarPositions(STAR_COUNT));
 
   useFrame((_state, delta) => {
     if (ref.current) {
@@ -28,7 +41,7 @@ export const StarBackground = (props: PointsInstancesProps) => {
       <Points
         ref={ref}
         stride={3}
-        positions={new Float32Array(sphere)}
+        positions={sphere}
         frustumCulled
         {...props}
       >
