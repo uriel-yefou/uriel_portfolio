@@ -3,10 +3,17 @@
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { FormEvent, useState } from "react";
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+
 const inputClassName =
   "w-full rounded-xl border border-white/10 bg-[#030014]/60 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-blue-400/50 focus:ring-1 focus:ring-blue-400/30";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
+
+type Web3FormsResult = {
+  success?: boolean;
+  message?: string;
+};
 
 export const ContactForm = () => {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -17,40 +24,43 @@ export const ContactForm = () => {
     setStatus("sending");
     setErrorMessage("");
 
-    const formData = new FormData(event.currentTarget);
-    const payload = {
-      name: String(formData.get("name") ?? ""),
-      email: String(formData.get("email") ?? ""),
-      subject: String(formData.get("subject") ?? ""),
-      message: String(formData.get("message") ?? ""),
-    };
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      setStatus("error");
+      setErrorMessage(
+        "Contact form is not configured. Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local",
+      );
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: String(formData.get("name") ?? "").trim(),
+          email: String(formData.get("email") ?? "").trim(),
+          subject: String(formData.get("subject") ?? "").trim(),
+          message: String(formData.get("message") ?? "").trim(),
+        }),
       });
 
-      const text = await response.text();
-      let data: { error?: string; success?: boolean } = {};
+      const result = (await response.json()) as Web3FormsResult;
 
-      if (text.trim()) {
-        try {
-          data = JSON.parse(text) as { error?: string; success?: boolean };
-        } catch {
-          throw new Error("Server returned an invalid response. Please try again.");
-        }
-      } else if (!response.ok) {
-        throw new Error("Server returned an empty response. Please try again.");
-      }
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.error ?? "Failed to send message");
+      if (!result.success) {
+        throw new Error(result.message ?? "Failed to send message");
       }
 
       setStatus("success");
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setStatus("error");
       setErrorMessage(
