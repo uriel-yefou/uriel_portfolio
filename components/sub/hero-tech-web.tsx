@@ -5,24 +5,24 @@ const OUTER_NODES = [
   { x: 63.77660356514323, y: 16.74033682959368, image: "js.png", alt: "JavaScript" },
   { x: 83.25966317040633, y: 36.22339643485677, image: "react.png", alt: "React" },
   { x: 83.25966317040633, y: 63.77660356514323, image: "postgresql.png", alt: "PostgreSQL" },
-  { x: 63.77660356514323, y: 83.25966317040633, image: "node.png", alt: "Node.js" },
-  { x: 36.22339643485677, y: 83.25966317040633, image: "mongodb.png", alt: "MongoDB" },
-  { x: 16.74033682959368, y: 63.77660356514323, image: "html.png", alt: "HTML5" },
-  { x: 16.74033682959368, y: 36.22339643485677, image: "css.png", alt: "CSS3" },
+  { x: 63.77660356514323, y: 83.25966317040633, image: "3d-model.png", alt: "3D Model" },
+  { x: 36.22339643485677, y: 83.25966317040633, image: "next.png", alt: "Next.js" },
+  { x: 16.74033682959368, y: 63.77660356514323, image: "prisma.png", alt: "Prisma" },
+  { x: 16.74033682959368, y: 36.22339643485677, image: "ts.png", alt: "TypeScript" },
 ] as const;
 
 const INNER_NODES = [
-  { x: 50, y: 33.37, image: "next.png", alt: "Next.js" },
-  { x: 66.63, y: 50, image: "express.png", alt: "Express.js" },
+  { x: 50, y: 33.37, image: "llms.png", alt: "LLMs" },
+  { x: 66.63, y: 50, image: "pytorch.png", alt: "Pytorch" },
   { x: 50, y: 66.63, image: "graphql.png", alt: "GraphQL" },
-  { x: 33.37, y: 50, image: "prisma.png", alt: "Prisma" },
+  { x: 33.37, y: 50, image: "langchain.png", alt: "LangChain" },
 ] as const;
 
 const CENTER_NODE = {
   x: 50,
   y: 50,
-  image: "ts.png",
-  alt: "TypeScript",
+  image: "python.png",
+  alt: "Python",
 } as const;
 
 type TechNodeProps = {

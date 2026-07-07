@@ -4,86 +4,75 @@ import {
   RxTwitterLogo,
 } from "react-icons/rx";
 
-export const SKILL_DATA = [
-  {
-    skill_name: "TypeScript",
-    image: "ts.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "JavaScript",
-    image: "js.png",
-    width: 65,
-    height: 65,
-  },
-  {
-    skill_name: "React",
-    image: "react.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Next.js",
-    image: "next.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Node.js",
-    image: "node.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Docker",
-    image: "docker.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "PostgreSQL",
-    image: "postgresql.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "MongoDB",
-    image: "mongodb.png",
-    width: 40,
-    height: 40,
-  },
-  {
-    skill_name: "Express.js",
-    image: "express.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Tailwind CSS",
-    image: "tailwind.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "GraphQL",
-    image: "graphql.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Prisma",
-    image: "prisma.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "HTML5",
-    image: "html.png",
-    width: 80,
-    height: 80,
-  },
+export const ALL_SKILLS = [
+  { skill_name: "Python", image: "python.png" },
+  { skill_name: "LLMs", image: "llms.png" },
+  { skill_name: "LangChain", image: "langchain.png" },
+  { skill_name: "PyTorch", image: "pytorch.png" },
+  { skill_name: "ChatGPT", image: "chatgpt.png" },
+  { skill_name: "Claude", image: "claude.png" },
+  { skill_name: "Computer Vision", image: "3d-model.png" },
+  { skill_name: "n8n", image: "n8n.png" },
+  { skill_name: "Docker", image: "docker.png" },
+  { skill_name: "Kubernetes", image: "kubernetes.png" },
+  { skill_name: "MLflow", image: "mlflow.png" },
+  { skill_name: "Git", image: "git.png" },
+  { skill_name: "Django", image: "djang.png" },
+  { skill_name: "React", image: "react.png" },
+  { skill_name: "TypeScript", image: "ts.png" },
+  { skill_name: "Next.js", image: "next.png" },
+  { skill_name: "PostgreSQL", image: "postgresql.png" },
+  { skill_name: "MongoDB", image: "mongodb.png" },
+  { skill_name: "Networking", image: "networking-manager.png" },
+  { skill_name: "Cyber Security", image: "cyber-security.png" },
+  { skill_name: "Node.js", image: "node.png" },
+  { skill_name: "Express.js", image: "express.png" },
+  { skill_name: "GraphQL", image: "graphql.png" },
+  { skill_name: "Prisma", image: "prisma.png" },
+  { skill_name: "Tailwind CSS", image: "tailwind.png" },
+  { skill_name: "HTML5", image: "html.png" },
+  { skill_name: "CSS3", image: "css.png" },
+  { skill_name: "JavaScript", image: "js.png" },
+  { skill_name: "Material UI", image: "mui.png" },
+  { skill_name: "Redux", image: "redux.png" },
+  { skill_name: "React Query", image: "reactquery.png" },
+  { skill_name: "Framer Motion", image: "framer.png" },
+  { skill_name: "MySQL", image: "mysql.png" },
+  { skill_name: "Firebase", image: "firebase.png" },
+  { skill_name: "Go", image: "go.png" },
+  { skill_name: "Stripe", image: "stripe.png" },
+  { skill_name: "React Native", image: "reactnative.png" },
+  { skill_name: "Figma", image: "figma.png" },
+  { skill_name: "Tauri", image: "tauri.png" },
 ] as const;
+
+/** Pyramid row sizes: widest (strongest) at top → narrowest at bottom */
+export const SKILL_PYRAMID_SIZES = [13, 10, 8, 5, 3] as const;
+
+function chunkSkills<T>(skills: readonly T[], sizes: readonly number[]): T[][] {
+  const rows: T[][] = [];
+  let offset = 0;
+
+  for (const size of sizes) {
+    rows.push(skills.slice(offset, offset + size) as T[]);
+    offset += size;
+  }
+
+  return rows;
+}
+
+export const SKILL_PYRAMID_ROWS = chunkSkills(ALL_SKILLS, SKILL_PYRAMID_SIZES);
+
+export const SKILL_DATA = ALL_SKILLS.slice(0, 13);
+export const FRONTEND_SKILL = ALL_SKILLS.slice(13, 23);
+export const BACKEND_SKILL = ALL_SKILLS.slice(23, 31);
+export const FULLSTACK_SKILL = ALL_SKILLS.slice(31, 36);
+export const OTHER_SKILL = ALL_SKILLS.slice(36, 39);
+
+export const SKILL_ROWS = SKILL_PYRAMID_ROWS.map((skills, index) => ({
+  id: `pyramid-${index}`,
+  skills,
+}));
 
 export const SOCIALS = [
   {
@@ -100,156 +89,6 @@ export const SOCIALS = [
     name: "Twitter",
     icon: RxTwitterLogo,
     link: "https://x.com/_sanidhyy",
-  },
-] as const;
-
-export const FRONTEND_SKILL = [
-  {
-    skill_name: "HTML5",
-    image: "html.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "CSS3",
-    image: "css.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "JavaScript",
-    image: "js.png",
-    width: 65,
-    height: 65,
-  },
-  {
-    skill_name: "Tailwind CSS",
-    image: "tailwind.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "React",
-    image: "react.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "TypeScript",
-    image: "ts.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Next.js",
-    image: "next.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Material UI",
-    image: "mui.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Redux",
-    image: "redux.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "React Query",
-    image: "reactquery.png",
-    width: 80,
-    height: 80,
-  },
-] as const;
-
-export const BACKEND_SKILL = [
-  {
-    skill_name: "Node.js",
-    image: "node.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Express.js",
-    image: "express.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "PostgreSQL",
-    image: "postgresql.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "MySQL",
-    image: "mysql.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "MongoDB",
-    image: "mongodb.png",
-    width: 40,
-    height: 40,
-  },
-  {
-    skill_name: "Prisma",
-    image: "prisma.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "GraphQL",
-    image: "graphql.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Firebase",
-    image: "firebase.png",
-    width: 55,
-    height: 55,
-  },
-] as const;
-
-export const FULLSTACK_SKILL = [
-  {
-    skill_name: "Docker",
-    image: "docker.png",
-    width: 70,
-    height: 70,
-  },
-  {
-    skill_name: "React",
-    image: "react.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "Node.js",
-    image: "node.png",
-    width: 80,
-    height: 80,
-  },
-  {
-    skill_name: "PostgreSQL",
-    image: "postgresql.png",
-    width: 70,
-    height: 70,
-  },
-] as const;
-
-export const OTHER_SKILL = [
-  {
-    skill_name: "CSS3",
-    image: "css.png",
-    width: 80,
-    height: 80,
   },
 ] as const;
 
@@ -382,7 +221,7 @@ export const ABOUT_HEADING = "Senior AI Engineer & ML Specialist";
 export const ABOUT_STATS = [
   { value: "15+", label: "Projects" },
   { value: "7+", label: "Years coding" },
-  { value: "15+", label: "Technologies" },
+  { value: "35+", label: "Technologies" },
 ] as const;
 
 export const ABOUT_EDUCATION = [

@@ -5,6 +5,7 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarfieldLayer } from "@/components/main/stars-canvas-loader";
+import { HeroVideo } from "@/components/sub/hero-video";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -23,13 +24,26 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={cn("overflow-x-hidden overflow-y-scroll", inter.className)}
+        className={cn(
+          "relative overflow-x-hidden overflow-y-scroll bg-[#030014]",
+          inter.className,
+        )}
       >
-        <div className="fixed inset-0 z-0 isolate bg-[#030014]">
+        {/* Layer 1: hero video (scrolls with page) */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[100dvh] overflow-visible"
+        >
+          <HeroVideo />
+        </div>
+
+        {/* Layer 2: stars on top of video */}
+        <div className="pointer-events-none fixed inset-0 z-[2]">
           <StarfieldLayer />
         </div>
 
-        <div className="relative z-10">
+        {/* Layer 3: navbar + page content */}
+        <div className="relative z-[3]">
           <Navbar />
           {children}
           <Footer />

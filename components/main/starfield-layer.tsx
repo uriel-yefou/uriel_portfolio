@@ -11,7 +11,7 @@ export const StarfieldLayer = () => {
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden"
+      className="pointer-events-none fixed inset-0 h-full w-full overflow-hidden"
     >
       <div
         className={cn(
