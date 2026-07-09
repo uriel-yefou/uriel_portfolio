@@ -28,7 +28,7 @@ export const HeroVideo = () => {
       loop
       playsInline
       style={videoStyle}
-      className="pointer-events-none absolute inset-0 h-full w-full rotate-180 object-cover"
+      className="pointer-events-none absolute left-0 top-0 z-[1] h-full w-full rotate-180 object-cover"
     >
       <source src="/videos/blackhole.webm" type="video/webm" />
     </video>

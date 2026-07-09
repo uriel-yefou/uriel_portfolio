@@ -36,13 +36,12 @@ type TechNodeProps = {
 function TechNode({ x, y, image, alt, size }: TechNodeProps) {
   return (
     <div
-      className="absolute flex items-center justify-center rounded-xl border border-[#7042f88b] bg-[rgba(255,255,255,0.05)] shadow-[0_0_16px_rgba(139,92,246,0.25)] backdrop-blur-sm"
+      className="absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-[#7042f88b] bg-[rgba(255,255,255,0.05)] shadow-[0_0_16px_rgba(139,92,246,0.25)] backdrop-blur-sm transition-all duration-300 ease-out hover:z-20 hover:scale-110 hover:border-[#8b5cf6] hover:shadow-[0_0_28px_rgba(139,92,246,0.55)]"
       style={{
         left: `${x}%`,
         top: `${y}%`,
         width: size,
         height: size,
-        transform: "translate(-50%, -50%)",
       }}
     >
       <Image

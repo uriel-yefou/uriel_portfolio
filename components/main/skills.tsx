@@ -9,7 +9,7 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative flex h-full w-full flex-col items-center overflow-hidden py-16 sm:py-20"
+      className="relative flex h-full w-full flex-col items-center overflow-x-hidden py-16 sm:py-20"
     >
       <PageContainer className="relative z-10 flex w-full flex-col items-center gap-3">
         <SectionTitle>Skills</SectionTitle>
