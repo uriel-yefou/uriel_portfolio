@@ -1,10 +1,10 @@
 "use client";
 
-import { Points, PointMaterial, type PointsInstancesProps } from "@react-three/drei";
+import { Points, PointMaterial } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as random from "maath/random";
-import { useRef, Suspense, useMemo } from "react";
-import type { Group } from "three";
+import { Suspense, useRef, useState } from "react";
+import type { Points as PointsType } from "three";
 
 const STAR_COUNT = 5000;
 
@@ -21,58 +21,44 @@ function generateStarPositions(count: number) {
   return positions;
 }
 
-export const StarBackground = (props: PointsInstancesProps) => {
-  const groupRef = useRef<Group | null>(null);
-  const sphere = useMemo(() => generateStarPositions(STAR_COUNT), []);
+const StarBackground = (props: object) => {
+  const ref = useRef<PointsType | null>(null);
+  const [sphere] = useState(() => generateStarPositions(STAR_COUNT));
 
   useFrame((_state, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.x -= delta / 8;
-      groupRef.current.rotation.y -= delta / 12;
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 10;
+      ref.current.rotation.y -= delta / 15;
     }
   });
 
   return (
-    <group ref={groupRef} rotation={[0, 0, Math.PI / 4]}>
+    <group rotation={[0, 0, Math.PI / 4]}>
       <Points
-        stride={3}
+        ref={ref}
         positions={sphere}
+        stride={3}
         frustumCulled={false}
         {...props}
       >
         <PointMaterial
           transparent
-          color="#ffffff"
-          size={2}
-          sizeAttenuation={false}
+          color="#fff"
+          size={0.002}
+          sizeAttenuation
           depthWrite={false}
-          opacity={0.95}
         />
       </Points>
     </group>
   );
 };
 
-type StarsCanvasProps = {
-  onReady?: () => void;
-};
-
-export const StarsCanvas = ({ onReady }: StarsCanvasProps) => (
-  <Canvas
-    camera={{ position: [0, 0, 1] }}
-    className="!h-full !w-full"
-    dpr={[1, 2]}
-    frameloop="always"
-    gl={{
-      alpha: true,
-      antialias: true,
-      powerPreference: "high-performance",
-    }}
-    style={{ width: "100%", height: "100%" }}
-    onCreated={() => onReady?.()}
-  >
-    <Suspense fallback={null}>
-      <StarBackground />
-    </Suspense>
-  </Canvas>
+export const StarsCanvas = () => (
+  <div className="fixed inset-0 z-[20] h-auto w-full">
+    <Canvas camera={{ position: [0, 0, 1] }}>
+      <Suspense fallback={null}>
+        <StarBackground />
+      </Suspense>
+    </Canvas>
+  </div>
 );

@@ -4,7 +4,7 @@ import type { PropsWithChildren } from "react";
 
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
-import { StarfieldLayer } from "@/components/main/stars-canvas-loader";
+import { StarsCanvas } from "@/components/main/stars-canvas-loader";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.className,
         )}
       >
-        <StarfieldLayer />
+        <StarsCanvas />
         <Navbar />
         {children}
         <Footer />
