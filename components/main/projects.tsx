@@ -8,10 +8,7 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-import {
-  ProjectShowcaseCard,
-  ProjectsCtaCard,
-} from "@/components/sub/project-showcase-card";
+import { ProjectShowcaseCard } from "@/components/sub/project-showcase-card";
 import { SectionTitle } from "@/components/sub/section-title";
 import { PROJECTS } from "@/constants";
 
@@ -54,7 +51,7 @@ export const Projects = () => {
     };
   }, []);
 
-  const sectionHeight = `${(PROJECTS.length + 2) * SCROLL_VH_PER_ITEM}vh`;
+  const sectionHeight = `${(PROJECTS.length + 1) * SCROLL_VH_PER_ITEM}vh`;
 
   const trackClassName =
     "flex h-full min-h-0 items-stretch will-change-transform pl-6 md:pl-[80px]";
@@ -85,7 +82,6 @@ export const Projects = () => {
                 link={project.link}
               />
             ))}
-            <ProjectsCtaCard />
           </div>
         ) : (
           <div className="relative min-h-0 flex-1 overflow-hidden">
@@ -102,7 +98,6 @@ export const Projects = () => {
                   link={project.link}
                 />
               ))}
-              <ProjectsCtaCard />
             </motion.div>
 
             <p className="pointer-events-none absolute bottom-3 right-6 text-xs text-gray-500 md:bottom-4 md:right-[80px]">

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { LINKS } from "@/constants";
 import { cn } from "@/lib/utils";
 
 type ProjectShowcaseCardProps = {
@@ -90,27 +89,6 @@ export const ProjectShowcaseCard = ({
       >
         {contentBlock}
       </div>
-    </article>
-  );
-};
-
-export const ProjectsCtaCard = () => {
-  return (
-    <article className="flex h-full min-h-0 w-[min(85vw,475px)] shrink-0 flex-col justify-center border-r border-white/10 px-8 py-10 sm:px-10 sm:py-12">
-      <h3 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-        Want to see more?
-      </h3>
-      <p className="mt-4 max-w-xs text-sm text-gray-400 sm:text-base">
-        Explore all of my projects and AI engineering work.
-      </p>
-      <Link
-        href={LINKS.github}
-        target="_blank"
-        rel="noreferrer noopener"
-        className="button-primary mt-6 inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg px-4 py-2 text-center text-white transition sm:mt-8"
-      >
-        See All Works →
-      </Link>
     </article>
   );
 };

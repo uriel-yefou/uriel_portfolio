@@ -87,7 +87,7 @@ export const ContactInfo = () => {
           <RxGithubLogo className="h-6 w-6" />
         </Link>
         <Link
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/uriel-nguefack-yefou/"
           target="_blank"
           rel="noreferrer noopener"
           className="text-gray-400 transition hover:text-blue-400"

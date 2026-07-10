@@ -74,24 +74,6 @@ export const SKILL_ROWS = SKILL_PYRAMID_ROWS.map((skills, index) => ({
   skills,
 }));
 
-export const SOCIALS = [
-  {
-    name: "Instagram",
-    icon: RxInstagramLogo,
-    link: "https://instagram.com",
-  },
-  {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com",
-  },
-  {
-    name: "Twitter",
-    icon: RxTwitterLogo,
-    link: "https://x.com/_sanidhyy",
-  },
-] as const;
-
 export const PROJECTS = [
   {
     title: "Modern Next.js 14 Portfolio",
@@ -198,15 +180,13 @@ export const NAV_LINKS = [
 ] as const;
 
 export const LINKS = {
-  sourceCode: "https://github.com/sanidhyy/space-portfolio",
-  github: "https://github.com",
+  github: "https://github.com/nguefackuriel",
 };
 
 export const FOOTER_SOCIAL_LINKS = [
   { name: "GitHub", link: LINKS.github },
-  { name: "LinkedIn", link: "https://linkedin.com" },
-  { name: "Twitter", link: "https://x.com" },
-  { name: "Discord", link: "https://discord.com" },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/uriel-nguefack-yefou/" },
+  { name: "Discord", link: "https://discord.com/users/uriel_yefou" },
 ] as const;
 
 export const CONTACT_INFO = {
