@@ -59,7 +59,7 @@ export const ProjectShowcaseCard = ({
 
       <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
         <h3 className="mb-2 shrink-0 text-base font-semibold text-white sm:mb-3 sm:text-lg">
-          Tools and features
+          Core skills
         </h3>
         <p className="line-clamp-4 text-xs leading-relaxed text-gray-400 sm:line-clamp-5 sm:text-sm">
           {description}

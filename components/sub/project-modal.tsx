@@ -1,14 +1,10 @@
 "use client";
 
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
+import { ProjectImageViewer } from "@/components/sub/project-image-viewer";
 import type { Project } from "@/constants";
 
 type ProjectModalProps = {
@@ -54,20 +50,6 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     setActiveImage(0);
   }, [project?.title]);
 
-  const showPrev = () => {
-    if (!project) return;
-    setActiveImage((prev) =>
-      prev === 0 ? project.modalImages.length - 1 : prev - 1,
-    );
-  };
-
-  const showNext = () => {
-    if (!project) return;
-    setActiveImage((prev) =>
-      prev === project.modalImages.length - 1 ? 0 : prev + 1,
-    );
-  };
-
   return (
     <AnimatePresence>
       {project && (
@@ -76,7 +58,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6"
           role="dialog"
           aria-modal="true"
           aria-labelledby="project-modal-title"
@@ -93,7 +75,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="relative z-10 flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0a0c1a] shadow-[0_0_60px_rgba(59,130,246,0.2)]"
+            className="relative z-10 flex h-[94vh] max-h-[960px] w-full max-w-[min(1320px,98vw)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0a0c1a] shadow-[0_0_60px_rgba(59,130,246,0.2)]"
             onClick={(event) => event.stopPropagation()}
           >
             <button
@@ -105,67 +87,19 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <XMarkIcon className="h-5 w-5" />
             </button>
 
-            <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto lg:grid-cols-[6fr_4fr] lg:overflow-hidden">
-              {/* Left — image slider (60%) */}
-              <div className="relative flex min-h-[240px] flex-col bg-[#050816] p-4 sm:min-h-[320px] sm:p-6 lg:min-h-0">
-                <div className="relative flex-1 overflow-hidden rounded-xl border border-blue-500/20">
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={project.modalImages[activeImage]}
-                      initial={{ opacity: 0, x: 24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -24 }}
-                      transition={{ duration: 0.25 }}
-                      className="relative h-full min-h-[220px] w-full sm:min-h-[280px] lg:min-h-[360px]"
-                    >
-                      <Image
-                        src={project.modalImages[activeImage]}
-                        alt={`${project.title} screenshot ${activeImage + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 60vw"
-                        priority
-                      />
-                    </motion.div>
-                  </AnimatePresence>
-
-                  <button
-                    type="button"
-                    onClick={showPrev}
-                    aria-label="Previous image"
-                    className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white transition hover:border-blue-400/50 hover:bg-black/80"
-                  >
-                    <ChevronLeftIcon className="h-5 w-5" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={showNext}
-                    aria-label="Next image"
-                    className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/60 text-white transition hover:border-blue-400/50 hover:bg-black/80"
-                  >
-                    <ChevronRightIcon className="h-5 w-5" />
-                  </button>
-                </div>
-
-                <div className="mt-4 flex items-center justify-center gap-2">
-                  {project.modalImages.map((_, index) => (
-                    <button
-                      key={`slide-${index}`}
-                      type="button"
-                      aria-label={`Go to image ${index + 1}`}
-                      onClick={() => setActiveImage(index)}
-                      className={`h-2 rounded-full transition-all ${
-                        index === activeImage
-                          ? "w-6 bg-blue-400"
-                          : "w-2 bg-white/30 hover:bg-white/50"
-                      }`}
-                    />
-                  ))}
-                </div>
+            <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto lg:h-full lg:grid-cols-[6fr_4fr] lg:overflow-hidden">
+              {/* Left — image viewer (60%) */}
+              <div className="relative flex min-h-[360px] flex-col bg-[#050816] p-3 sm:min-h-[420px] sm:p-4 lg:min-h-0 lg:h-full lg:p-5">
+                <ProjectImageViewer
+                  images={project.modalImages}
+                  title={project.title}
+                  activeIndex={activeImage}
+                  onIndexChange={setActiveImage}
+                />
               </div>
 
               {/* Right — description & contributions (40%) */}
-              <div className="flex min-h-0 flex-col gap-5 overflow-y-auto p-5 sm:p-6 lg:p-8">
+              <div className="flex min-h-0 flex-col gap-4 overflow-y-auto p-4 sm:gap-5 sm:p-5 lg:p-6">
                 <div>
                   <p className="text-xs font-medium uppercase tracking-wider text-blue-400">
                     {project.category}
@@ -189,7 +123,7 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
 
                 <div>
                   <h3 className="mb-2 text-sm font-semibold text-white">
-                    Technologies
+                    Core Skills
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
