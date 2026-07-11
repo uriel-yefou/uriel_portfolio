@@ -1,0 +1,19 @@
+PathPilot
+
+Description: An AI-powered career coaching platform that gives job seekers 24/7 personalized guidance on job matching, resume feedback, and interview prep.
+My Contribution (AI/ML Engineer):
+
+Designed and fine-tuned conversational AI models to deliver human-like, context-aware career guidance across 50+ languages
+Built the job-matching engine, using embedding-based semantic search to align user skills and preferences with job postings beyond simple keyword matching
+Developed skills-assessment and resume-parsing pipelines to extract structured competency data from unstructured user input
+Integrated labor market intelligence data sources into the recommendation pipeline to improve guidance accuracy and relevance
+Implemented explainability features so recommendations came with transparent, human-readable reasoning
+
+Core Technical Skills:
+
+LLM fine-tuning & prompt engineering (conversational AI)
+NLP / semantic search & embeddings
+Python (ML pipelines, data processing)
+RAG (Retrieval-Augmented Generation) architecture
+Cloud ML infrastructure (AWS/GCP/Azure)
+API design & LMS/SSO integrations (LTI, SAML, OAuth)

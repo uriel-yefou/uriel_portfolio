@@ -1,0 +1,19 @@
+Surmount
+
+Description: An AI-driven investment platform that lets retail and institutional investors build, back-test, and automate data-driven trading strategies with no-code, low-code, or full Python options.
+My Contribution (AI/ML Engineer):
+
+Built and optimized back-testing infrastructure to validate trading strategies against historical macroeconomic and alternative data
+Developed AI-driven strategy recommendation models that translate rule-based and natural-language strategy inputs into executable trading logic
+Implemented sentiment analysis pipelines over financial news and social media to power alternative-data-driven strategy signals
+Worked on broker-agnostic execution integrations, ensuring strategies could run reliably across multiple connected brokerage accounts
+Contributed to data pipeline reliability (ETL monitoring, encryption) to maintain trustworthy, auditable financial data flows
+
+Core Technical Skills:
+
+Quantitative modeling & algorithmic trading logic
+Time-series analysis & back-testing frameworks
+NLP (sentiment analysis on financial text)
+Python (Pandas, NumPy, financial data libraries)
+Broker/API integrations & real-time data pipelines
+Data security (encryption standards for financial data)

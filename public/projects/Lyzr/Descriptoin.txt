@@ -1,0 +1,19 @@
+Lyzr AI
+
+Description: A full-stack enterprise infrastructure platform that lets organizations build, deploy, govern, and scale AI agents in production.
+My Contribution (AI/ML Engineer):
+
+Contributed to the agent orchestration layer, supporting multi-agent workflows with both deterministic and dynamic coordination
+Built guardrail and evaluation systems (hallucination detection, toxicity filtering, PII redaction) to make agents production-safe
+Worked on the framework-agnostic integration layer, enabling agents to run across LangChain, CrewAI, AutoGen, and custom stacks with any LLM provider
+Developed observability tooling (tracing, latency metrics, run-level debugging) for monitoring hundreds of concurrent agents
+Supported the agent simulation engine used to stress-test agents against edge cases before production deployment
+
+Core Technical Skills:
+
+Multi-agent orchestration frameworks (LangChain, CrewAI, AutoGen)
+LLM-agnostic API integration (OpenAI, Anthropic, open-source models)
+RAG pipelines & vector databases
+MLOps / observability & tracing systems
+Enterprise security & compliance (SOC 2, RBAC, audit logging)
+Python / backend systems architecture

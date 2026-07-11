@@ -74,7 +74,17 @@ export const SKILL_ROWS = SKILL_PYRAMID_ROWS.map((skills, index) => ({
   skills,
 }));
 
-export const PROJECTS = [
+export type Project = {
+  title: string;
+  category: string;
+  description: string;
+  technologies: readonly string[];
+  image: string;
+  modalImages: readonly [string, string];
+  contributions: readonly string[];
+};
+
+export const PROJECTS: readonly Project[] = [
   {
     title: "Modern Next.js 14 Portfolio",
     category: "Full Stack",
@@ -82,7 +92,13 @@ export const PROJECTS = [
       "A dynamic portfolio built with Next.js showcasing modern web development practices, responsive design, and immersive UI interactions.",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     image: "/projects/project-1.png",
-    link: "https://example.com",
+    modalImages: ["/projects/project-1.png", "/projects/project-2.png"],
+    contributions: [
+      "Architected the full-stack portfolio structure with Next.js App Router",
+      "Implemented responsive layouts and scroll-driven project showcase",
+      "Integrated Framer Motion animations across hero and section transitions",
+      "Optimized image loading and component-level code splitting",
+    ],
   },
   {
     title: "Interactive Cards Portfolio",
@@ -91,7 +107,13 @@ export const PROJECTS = [
       "An interactive card-based portfolio experience with motion design, engaging layouts, and a focus on visual storytelling.",
     technologies: ["React", "JavaScript", "CSS3", "Framer Motion"],
     image: "/projects/project-2.png",
-    link: "https://example.com",
+    modalImages: ["/projects/project-2.png", "/projects/project-3.png"],
+    contributions: [
+      "Designed card-based UI patterns with hover and motion interactions",
+      "Built reusable card components with consistent visual hierarchy",
+      "Crafted responsive grid layouts for multi-device support",
+      "Tuned animation timing for smooth, accessible motion",
+    ],
   },
   {
     title: "Space Themed Website",
@@ -100,45 +122,75 @@ export const PROJECTS = [
       "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
     technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
     image: "/projects/project-3.png",
-    link: "https://example.com",
+    modalImages: ["/projects/project-3.png", "/projects/project-1.png"],
+    contributions: [
+      "Implemented Three.js starfield background with WebGL rendering",
+      "Integrated cinematic hero video with layered z-index composition",
+      "Designed dark-themed UI with purple and blue accent system",
+      "Ensured pointer-events and stacking work across all interactive sections",
+    ],
   },
   {
-    title: "Space Themed Website",
-    category: "Web Design",
+    title: "LLM Pipeline Orchestrator",
+    category: "AI / ML",
     description:
-      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
-    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+      "A production-grade LLM pipeline for multi-step reasoning, tool use, and observability across agent workflows.",
+    technologies: ["Python", "LangChain", "LLMs", "Docker", "MLflow"],
+    image: "/projects/project-1.png",
+    modalImages: ["/projects/project-1.png", "/projects/project-2.png"],
+    contributions: [
+      "Built multi-agent orchestration with retry and fallback strategies",
+      "Added tracing and evaluation hooks for production monitoring",
+      "Containerized services for reproducible deployment",
+      "Documented prompt templates and versioning workflows",
+    ],
   },
   {
-    title: "Space Themed Website",
-    category: "Web Design",
+    title: "Computer Vision QA System",
+    category: "AI / ML",
     description:
-      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
-    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+      "An automated visual inspection system using deep learning models for defect detection on manufacturing lines.",
+    technologies: ["PyTorch", "Python", "Docker", "Kubernetes"],
+    image: "/projects/project-2.png",
+    modalImages: ["/projects/project-2.png", "/projects/project-3.png"],
+    contributions: [
+      "Trained and fine-tuned CNN models for defect classification",
+      "Deployed inference API with batch and real-time modes",
+      "Set up model registry and experiment tracking with MLflow",
+      "Reduced false positives through threshold tuning and data augmentation",
+    ],
   },
   {
-    title: "Space Themed Website",
-    category: "Web Design",
+    title: "RAG Knowledge Assistant",
+    category: "AI / ML",
     description:
-      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
-    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
+      "A retrieval-augmented generation assistant that answers questions from internal documentation with cited sources.",
+    technologies: ["LangChain", "LLMs", "PostgreSQL", "Python"],
     image: "/projects/project-3.png",
-    link: "https://example.com",
+    modalImages: ["/projects/project-3.png", "/projects/project-1.png"],
+    contributions: [
+      "Designed chunking and embedding pipeline for document ingestion",
+      "Implemented hybrid search with semantic and keyword retrieval",
+      "Added source citation and confidence scoring in responses",
+      "Built evaluation suite for answer quality and latency",
+    ],
   },
   {
-    title: "Space Themed Website",
-    category: "Web Design",
+    title: "Multi-Agent Workflow Engine",
+    category: "AI / ML",
     description:
-      "A space-themed website blending cinematic visuals, Three.js elements, and a dark UI for an immersive browsing experience.",
-    technologies: ["Next.js", "Three.js", "Tailwind CSS", "TypeScript"],
-    image: "/projects/project-3.png",
-    link: "https://example.com",
+      "A workflow engine coordinating specialized agents for research, coding, and review tasks in software delivery.",
+    technologies: ["Python", "n8n", "LangChain", "TypeScript"],
+    image: "/projects/project-1.png",
+    modalImages: ["/projects/project-1.png", "/projects/project-3.png"],
+    contributions: [
+      "Defined agent roles, handoff protocols, and state management",
+      "Integrated external tools via structured function calling",
+      "Built dashboard for run history and human-in-the-loop review",
+      "Hardened error handling for long-running async workflows",
+    ],
   },
-] as const;
+];
 
 export const FOOTER_QUICK_LINKS = [
   { title: "Home", link: "#home" },

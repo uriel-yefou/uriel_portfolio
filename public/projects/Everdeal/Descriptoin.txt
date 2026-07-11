@@ -1,0 +1,19 @@
+Everdeal
+
+Description: A vertical SaaS (XRM) platform that replaces spreadsheets and manual processes with real-time, automated workflow management for auto dealerships.
+My Contribution (AI/ML Engineer):
+
+Developed intelligent workflow automation logic to route deals automatically between Sales, Finance, Shop, and Accounting based on status triggers
+Built anomaly-detection features to catch errors like double-selling the same vehicle or missing deal steps
+Designed the performance analytics/dashboard layer, using predictive insights to surface sales trends and team performance metrics
+Contributed to natural-language processing for the due-bill and work-order generation system, reducing manual data entry
+Worked on data pipeline design to keep cross-department information synchronized in real time
+
+Core Technical Skills:
+
+Workflow automation & rules-engine design
+Predictive analytics & dashboarding
+Python / backend API development
+Real-time data sync (event-driven architecture)
+SQL / relational database design
+Anomaly detection & data validation

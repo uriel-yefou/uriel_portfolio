@@ -1,36 +1,31 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
+import Image from "next/image";
+
+import type { Project } from "@/constants";
 import { cn } from "@/lib/utils";
 
 type ProjectShowcaseCardProps = {
   index: number;
-  title: string;
-  category: string;
-  description: string;
-  technologies: readonly string[];
-  image: string;
-  link: string;
+  project: Project;
+  onOpen: () => void;
 };
 
 export const ProjectShowcaseCard = ({
   index,
-  title,
-  category,
-  description,
-  technologies,
-  image,
-  link,
+  project,
+  onOpen,
 }: ProjectShowcaseCardProps) => {
+  const { title, category, description, technologies, image } = project;
   const number = String(index + 1).padStart(2, "0");
   const imageFirst = index % 2 === 1;
 
   const imageBlock = (
-    <Link
-      href={link}
-      target="_blank"
-      rel="noreferrer noopener"
-      className="group flex h-full min-h-0 flex-col justify-center px-6 py-4 sm:px-8 sm:py-5"
+    <button
+      type="button"
+      onClick={onOpen}
+      aria-label={`View details for ${title}`}
+      className="group flex h-full min-h-0 w-full flex-col justify-center px-6 py-4 text-left sm:px-8 sm:py-5"
     >
       <div className="h-full min-h-[140px] overflow-hidden rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)] transition group-hover:border-blue-400/50 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]">
         <Image
@@ -41,7 +36,7 @@ export const ProjectShowcaseCard = ({
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
         />
       </div>
-    </Link>
+    </button>
   );
 
   const contentBlock = (
@@ -51,14 +46,13 @@ export const ProjectShowcaseCard = ({
           {number}
         </span>
         <div className="min-w-0 text-right">
-          <Link
-            href={link}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="line-clamp-2 text-lg font-semibold text-white transition hover:text-blue-400 sm:text-xl md:text-2xl"
+          <button
+            type="button"
+            onClick={onOpen}
+            className="line-clamp-2 text-left text-lg font-semibold text-white transition hover:text-blue-400 sm:text-xl md:text-2xl"
           >
             {title}
-          </Link>
+          </button>
           <p className="mt-1 text-xs text-gray-500 sm:text-sm">{category}</p>
         </div>
       </div>
@@ -73,6 +67,13 @@ export const ProjectShowcaseCard = ({
         <p className="mt-2 line-clamp-2 shrink-0 text-xs text-gray-500 sm:mt-3 sm:text-sm">
           {technologies.join(", ")}
         </p>
+        <button
+          type="button"
+          onClick={onOpen}
+          className="mt-3 w-fit text-xs font-medium text-blue-400 transition hover:text-blue-300 sm:text-sm"
+        >
+          View details →
+        </button>
       </div>
     </div>
   );

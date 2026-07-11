@@ -1,0 +1,21 @@
+TaskFlow - Multi-Tenant Projects & Tasks Management
+
+Description: A full-stack B2B web application for managing projects, tasks, and discussion threads with strict multi-tenant data isolation, role-based access control, and a modern React + FastAPI architecture.
+
+Your contribution:
+
+- Designed and built the full-stack application using FastAPI (Python) and React (TypeScript), with tenant-scoped data models, JWT authentication, and RBAC across Admin, Manager, and Contributor roles.
+- Implemented core backend features: projects/tasks CRUD with soft delete, server-side search and filtering, paginated API endpoints, versioned thread replies, audit logging, and CSV export.
+- Developed the React frontend with protected routing, auth context, and dedicated pages for Dashboard, Projects, Tasks, Threads, Audit Logs, Reports, and User Management using Tailwind CSS and TanStack Query.
+- Added advanced bonus features: background jobs for auto-archiving resolved threads, HMAC-signed webhooks on thread resolution, scoped service account API tokens, and query performance benchmarks with index recommendations.
+- Wrote setup documentation, seed data for multi-tenant demo environments, and tenant isolation verification steps to demonstrate secure, per-tenant data separation end to end.
+
+
+Main technical stacks:
+
+- Backend: FastAPI (Python) with async SQLAlchemy 2.0 and Pydantic for REST APIs, validation, and data modeling
+- Frontend: React 19 + TypeScript, built with Vite and styled with Tailwind CSS
+- Database: SQLite via aiosqlite, with tenant-scoped queries and indexed lookups for search and reporting
+- Authentication & security: JWT (python-jose), bcrypt password hashing, RBAC, and scoped service account API tokens
+- State & data fetching: TanStack React Query, Axios, and React Router for client-side routing and API integration
+- Additional services: Background jobs (asyncio), HMAC-signed webhooks (httpx), and Recharts for the reporting dashboard

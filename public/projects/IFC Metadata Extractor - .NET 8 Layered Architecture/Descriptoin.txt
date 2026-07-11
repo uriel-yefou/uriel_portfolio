@@ -1,0 +1,24 @@
+Title
+IFC Metadata Extractor — .NET 8 Layered Architecture
+
+Project description (1 sentence)
+A .NET 8 console application that reads IFC building models using Xbim.Ifc, extracts element metadata (name, global ID, parent relationships, and properties), and exports the results as structured JSON.
+
+My contribution
+
+- Designed and implemented a .NET 8 solution with three projects: StartUp (console), Business, and Domain, following layered architecture and separation of concerns.
+- Created the IFCElement domain model and Domain services to read IFC files (Xbim.Ifc) and write extracted metadata to JSON.
+- Built the Business extraction logic to map IIfcRoot entities into IFCElement, including name, global ID, entity type, description, and custom properties.
+- Implemented parent hierarchy resolution using IFC relationships: IfcRelAggregates, IfcRelNests, and IfcRelContainedInSpatialStructure.
+- Added property set extraction (e.g. Pset_Custom) and wired an end-to-end IfcMetadataPipeline from console input through extraction to JSON output.
+- Validated the solution with Sample.ifc and generated extracted_metadata.json for submission.
+
+
+Technical Skills:
+
+C# / .NET 8 — Console app development, class libraries, async I/O, and System.Text.Json serialization
+Layered architecture — StartUp / Business / Domain separation, orchestration, and clean dependency flow
+IFC / BIM data — IFC4 model concepts: IIfcRoot, spatial hierarchy, relationships, and property sets
+Xbim.Ifc — Opening IFC files, traversing instances, and reading entity metadata via the Xbim API
+Data mapping & extraction — Transforming IFC entities into a custom IFCElement model with parent resolution and property flattening
+JSON output & file pipeline — End-to-end workflow from IFC input to structured JSON export (extracted_metadata.json)
