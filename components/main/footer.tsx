@@ -16,7 +16,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-transparent pb-8 pt-16">
+    <footer className="w-full bg-transparent pb-8 pt-16 absolute">
       <PageContainer>
         <div className="flex flex-col justify-between gap-12 md:flex-row md:gap-8">
           <div>
