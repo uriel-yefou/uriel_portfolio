@@ -47,6 +47,7 @@ Here is the folder structure of this app.
 ```bash
 space-portfolio/
   |- app/
+    |-- api/
     |-- apple-icon.png
     |-- favicon.ico
     |-- globals.css
@@ -62,9 +63,12 @@ space-portfolio/
   |- constants/
     |-- index.ts
   |- lib/
+    |-- layout.ts
     |-- motion.ts
     |-- utils.ts
   |- public/
+  |- .env.example
+  |- .env/.env.local
   |- .eslintrc.json
   |- .gitignore
   |- eslint.config.mjs
